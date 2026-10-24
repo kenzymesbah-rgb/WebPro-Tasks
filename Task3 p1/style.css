@@ -1,0 +1,78 @@
+
+/* Basic Styles */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #eef2f7;
+    color: #292f3a;
+}
+
+/* Portfolio Header */
+.portfolio-header {
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.portfolio-header h1 {
+    margin: 0 0 0.25rem;
+    font-size: 1.5rem;
+}
+
+.portfolio-header p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* Mobile: One Column */
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #dce8ff;
+    border: 1px solid #9bbcff;
+    border-radius: 5px;
+}
+
+/* Project Cards */
+.project {
+    background-color: white;
+    border: 1px solid #6d91ff;
+    border-radius: 4px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+}
+
+.project h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.project p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+}
+
+/* Tablet: Two Columns */
+@media (min-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Desktop: Four Columns */
+@media (min-width: 1024px) {
+    .grid-container {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
