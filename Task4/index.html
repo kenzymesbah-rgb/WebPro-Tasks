@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tip Calculator</title>
+  <style>
+    #errorMsg { color: red; display: none; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <h1>Tip Calculator</h1>
+
+  <input type="number" id="billAmount" placeholder="Enter bill amount" min="0" step="0.01">
+  <button id="calculateBtn">Calculate Tip</button>
+
+  <p id="errorMsg"></p>
+  <p id="tipAmount"></p>
+  <p id="totalBill"></p>
+
+  <script>
+    const TIP_RATE = 0.15; 
+
+    const billInput = document.getElementById("billAmount");
+    const calcBtn = document.getElementById("calculateBtn");
+    const tipDisplay = document.getElementById("tipAmount");
+    const totalDisplay = document.getElementById("totalBill");
+    const errorMsg = document.getElementById("errorMsg");
+
+    function showError(message) {
+      errorMsg.textContent = message;
+      errorMsg.style.display = "block";
+      tipDisplay.textContent = "";
+      totalDisplay.textContent = "";
+    }
+
+    function hideError() {
+      errorMsg.textContent = "";
+      errorMsg.style.display = "none";
+    }
+
+    calcBtn.addEventListener("click", function () {
+      const bill = parseFloat(billInput.value);
+
+      if (isNaN(bill) || bill < 0) {
+        showError("Please enter a valid bill amount.");
+        return;
+      }
+
+      hideError();
+
+      const tip = bill * TIP_RATE;
+      const total = bill + tip;
+
+      tipDisplay.textContent = "Tip: $" + tip.toFixed(2);
+      totalDisplay.textContent = "Total Bill: $" + total.toFixed(2);
+    });
+
+    
+    billInput.addEventListener("input", hideError);
+  </script>
+</body>
+</html>
